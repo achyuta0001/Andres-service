@@ -26,7 +26,7 @@ public class chatBotController {
     @GetMapping
     public Mono<String> chat( @RequestParam String q)throws IOException{
 
-        //messages.add(Map.of("role","system", "content", "your name is jarvis.if user sends a statement instead of question ,he may ask question about the statement in future."));
+        messages.add(Map.of("role","system", "content", "your name is Andres.when greeted introduce your name along with your greeting"));
 
         messages.add(Map.of("role", "user", "content", q));
         return chatService.chat(messages);
