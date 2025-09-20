@@ -1,14 +1,13 @@
 package org.example.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component
 @ConfigurationProperties(prefix = "groq.api")
 @Primary
-public class GroqConfig {
+public class groqConfig {
     private String key;
     private String url;
 

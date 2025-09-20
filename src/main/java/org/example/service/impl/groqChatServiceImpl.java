@@ -1,7 +1,8 @@
-package org.example.service;
+package org.example.service.impl;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import org.example.config.GroqConfig;
+import org.example.config.groqConfig;
+import org.example.service.base.groqChatService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
@@ -10,9 +11,9 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class GroqChatService {
+public class groqChatServiceImpl implements groqChatService {
    private final WebClient webClient;
-   public GroqChatService(GroqConfig config){
+   public groqChatServiceImpl(groqConfig config){
        this.webClient= WebClient.builder()
                .baseUrl(config.getUrl())
                .defaultHeader("Authorization","Bearer "+config.getKey())
