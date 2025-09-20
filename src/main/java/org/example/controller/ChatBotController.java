@@ -1,11 +1,11 @@
 package org.example.controller;
 
-import org.example.service.base.groqChatService;
+import org.example.service.base.GroqChatService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.example.service.impl.groqChatServiceImpl;
+import org.example.service.impl.GroqChatServiceImpl;
 import reactor.core.publisher.Mono;
 
 
@@ -16,11 +16,11 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/chat")
-public class chatBotController {
-    private final groqChatService chatService;
+public class ChatBotController {
+    private final GroqChatService chatService;
     List<Map<String, String>> messages = new ArrayList<>();
 
-    public chatBotController(groqChatServiceImpl chatService){
+    public ChatBotController(GroqChatServiceImpl chatService){
         this.chatService=chatService;
     }
     @GetMapping

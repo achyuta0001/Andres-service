@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 @ConfigurationProperties(prefix = "groq.api")
 @Primary
-public class groqConfig {
+public class GroqConfig {
     private String key;
     private String url;
 
