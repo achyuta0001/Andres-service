@@ -1,5 +1,4 @@
 package org.example.config;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
@@ -15,7 +14,7 @@ public class CorsGlobalConfig {
         config.addAllowedOrigin("http://localhost:5173"); // your frontend URL
         config.addAllowedMethod("*"); // allow all HTTP methods
         config.addAllowedHeader("*"); // allow all headers
-        config.setAllowCredentials(true); // if you plan to use cookies/auth headers
+        config.setAllowCredentials(true); // allow credentials like Authorization headers
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
@@ -23,3 +22,4 @@ public class CorsGlobalConfig {
         return new CorsWebFilter(source);
     }
 }
+
