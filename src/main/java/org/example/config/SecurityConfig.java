@@ -17,10 +17,10 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .cors(cors -> {})  // enable Spring’s CORS support
                 .authorizeExchange(exchanges -> exchanges
-                        .pathMatchers(HttpMethod.OPTIONS, "/**").permitAll() // <--- allow preflight
-                        .pathMatchers("/chat/**").authenticated()
-                        .requestMatchers("/health").permitAll()
-                        .anyExchange().permitAll()
+                        .pathMatchers(HttpMethod.OPTIONS, "/**").permitAll()      // allow preflight
+                        .pathMatchers("/health").permitAll()                      // allow Render health check
+                        .pathMatchers("/chat/**").authenticated()                // protect chat endpoints
+                        .anyExchange().permitAll()                                // allow other endpoints
                 )
                 .httpBasic(basic -> {});  // enable Basic Auth
 
