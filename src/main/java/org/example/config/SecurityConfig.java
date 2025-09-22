@@ -19,6 +19,7 @@ public class SecurityConfig {
                 .authorizeExchange(exchanges -> exchanges
                         .pathMatchers(HttpMethod.OPTIONS, "/**").permitAll() // <--- allow preflight
                         .pathMatchers("/chat/**").authenticated()
+                        .requestMatchers("/health").permitAll()
                         .anyExchange().permitAll()
                 )
                 .httpBasic(basic -> {});  // enable Basic Auth
